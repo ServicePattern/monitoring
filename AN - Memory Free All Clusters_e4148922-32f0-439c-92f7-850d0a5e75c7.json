@@ -1,0 +1,3557 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 124,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "md0-UOB4k"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "albiondmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "md0-UOB4k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^albiondmz1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "albiondmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "md0-UOB4k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^albiondmz2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "albionarb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "md0-UOB4k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^albionarb/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "albionelastic",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "md0-UOB4k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^albionelastic/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "albionmon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "md0-UOB4k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^albionmon/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Memory Free Albion",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "9Qg8_zyMk"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "andesdmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^andesdmz1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "andesdmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^andesdmz2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "andesint1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^andesint1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "andesint2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^andesint2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "andesrtp1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^andesrtp1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "andesrtp2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "orderByTime": "ASC",
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^andesrtp2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "andesrtp3",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "orderByTime": "ASC",
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^andesrtp3/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "andesarb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^andesarb/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "andesdb1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^andesdb1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "andesdb2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^andesdb2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "andeselastic1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^andeselastic1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "andesmon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^andesmon/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Memory Free Andes AWS",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "T4mMwjDnz"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 18
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "ausdmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "T4mMwjDnz"
+          },
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^aus2dmz1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "aus2dmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "T4mMwjDnz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^aus2dmz2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "aus2arb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "T4mMwjDnz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^aus2arb/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "aus2db1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "T4mMwjDnz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^aus2db1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "aus2db2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "T4mMwjDnz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^aus2db2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "aus2mon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "T4mMwjDnz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^aus2mon/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Memory Free Australia 2 AWS",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "000000014"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 27
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "ausdmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^ausdmz1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "ausdmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^ausdmz2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "ausrtp1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^ausrtp1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "ausrtp2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^ausrtp2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "ausarb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^ausarb/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "ausdb1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^ausdb1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "ausdb2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^ausdb2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "auselastic1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^auselastic1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "ausmon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^ausmon/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Memory Free Australia AWS",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "000000007"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 36
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "baydmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^baydmz1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "baydmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^baydmz2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "bayint1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^bayint1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "bayint2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^bayint2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "bayrtp1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^bayrtp1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "bayrtp2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "orderByTime": "ASC",
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^bayrtp2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "bayrtp3",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "orderByTime": "ASC",
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^bayrtp3/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "bayarb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^bayarb/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "baydb1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^baydb1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "baydb2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^baydb2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "bay-aws-config",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^bay-aws-config/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "bay-aws-reporting",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^bay-aws-reporting/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "bay-aws-mongo",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^bay-aws-mongo/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "M",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Memory Free Bay",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "000000020"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 45
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "gulfdmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^gulfdmz1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulfdmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^gulfdmz2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulfdmz3",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^gulfdmz3/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "N",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulfdmz5",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^gulfdmz5/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "O",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulfint1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^gulfint1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulfint2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^gulfint2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulfrtp1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^gulfrtp1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulfrtp2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "orderByTime": "ASC",
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^gulfrtp2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "gulfrtp3",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "orderByTime": "ASC",
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^gulfrtp3/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "gulfelastic",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^gulfelastic/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulfdb1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^gulfdb1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulfdb2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^gulfdb2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulf-aws-config",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^gulf-aws-config/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulf-aws-reporting",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^gulf-aws-reporting/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulf-aws-mongo",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^gulf-aws-mongo/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "M",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Memory Free Gulf",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "000000011"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 54
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "hilldmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^hilldmz1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hilldmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^hilldmz2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hilldmz3",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^hilldmz3/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "P",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hilldmz4",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^hilldmz4/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "N",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hilldmz5",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^hilldmz5/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "O",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hilldmz6",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^hilldmz6/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "Q",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hilldmz7",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^hilldmz7/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "R",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hilldmz8",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^hilldmz8/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "S",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hillint1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^hillint1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hillint2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^hillint2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hillrtp1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^hillrtp1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hillrtp2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "orderByTime": "ASC",
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^hillrtp2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "hilldb1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^hilldb1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hilldb2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^hilldb2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hillelastic1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^hillelastic1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hillmon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^hillmon/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hill-aws-config",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^hill-aws-config/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hill-aws-reporting",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^hill-aws-reporting/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hill-aws-mongo",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^hill-aws-mongo/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "M",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Memory Free Hill",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "000000018"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 63
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "iredmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^iredmz1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "iredmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^iredmz2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "ireint1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^ireint1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "ireint2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^ireint2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "irertp1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^irertp1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "irertp2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "orderByTime": "ASC",
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^irertp2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "irertp3",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "orderByTime": "ASC",
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^irertp3/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "irearb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^irearb/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "iredb1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^iredb1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "iredb2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^iredb2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "ireelastic",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^ireelastic/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "iremon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^iremon/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Memory Free Ireland AWS",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "000000019"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 72
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "japdmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^japdmz1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "japdmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^japdmz2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "japrtp1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^japrtp1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "japrtp2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "orderByTime": "ASC",
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^japrtp2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "japarb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^japarb/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "japdb1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^japdb1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "japdb2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^japdb2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "japelastic",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^japelastic/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "japmon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^japmon/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Memory Free Japan AWS",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "2ZLhMJ-nz"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 81
+      },
+      "id": 12,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "lakedmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^lakedmz1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "lakedmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^lakedmz2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "lakertp1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^lakertp1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "lakertp2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "orderByTime": "ASC",
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^lakertp2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "lakearb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^lakearb/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "lakedb1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^lakedb1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "lakedb2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^lakedb2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "lakeelastic",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^lakeelastic/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "lakemon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^lakemon/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Memory Free Lake AWS",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "HXzuYgd7k"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 90
+      },
+      "id": 13,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "oderdmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^oderdmz1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "oderdmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^oderdmz2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "oderrtp1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^oderrtp1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "oderarb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^oderarb/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "oderelastic",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^oderelastic/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "odermon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^odermon/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Memory Free Oder AWS",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "000000015"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 99
+      },
+      "id": 14,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "peakdmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^peakdmz1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peakdmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^peakdmz2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peakdmz3",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^peakdmz3/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "N",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peakdmz4",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^peakdmz4/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "O",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peakint1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^peakint1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peakint2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^peakint2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peakrtp1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^peakrtp1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peakrtp2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "orderByTime": "ASC",
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^peakrtp2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "peakrtp3",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "orderByTime": "ASC",
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^peakrtp3/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "peakarb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "orderByTime": "ASC",
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^peakarb/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "P",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "peakdb2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^peakdb2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peakdb4",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^peakdb4/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peakelastic1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^peakelastic1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peakmon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^peakmon/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "Q",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peak-aws-config",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^peak-aws-config/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peak-aws-reporting",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^peak-aws-reporting/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peak-aws-mongo",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^peak-aws-mongo/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "M",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Memory Free Peak",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "000000013"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 108
+      },
+      "id": 15,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "sin01",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000013"
+          },
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^sin01/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "sin02",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000013"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^sin02/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "sinarb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000013"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^sinarb/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "sinelastic",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000013"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^sinelastic/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "sinmon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000013"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^sinmon/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Memory Free Singapore AWS",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "JN5pF4P4z"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 117
+      },
+      "id": 16,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "sandbox-us-dmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "JN5pF4P4z"
+          },
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^sandbox-us-dmz1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "sandbox-us-db1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "JN5pF4P4z"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^sandbox-us-db1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "sandbox-us-mon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "JN5pF4P4z"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^sandbox-us-mon/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Memory Free Sandbox US",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "c6xpY74Vk"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 126
+      },
+      "id": 17,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "naverdmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "c6xpY74Vk"
+          },
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^naverdmz1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "naverdmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "c6xpY74Vk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^naverdmz2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "naverrtp1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "c6xpY74Vk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^naverrtp1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "naverrtp2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "c6xpY74Vk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "orderByTime": "ASC",
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^naverrtp2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "naverarb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "c6xpY74Vk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "orderByTime": "ASC",
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^naverarb/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "P",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "naverdb1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "c6xpY74Vk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^naverdb1/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "naverdb2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "c6xpY74Vk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^naverdb2/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "naverelastic",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "c6xpY74Vk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^naverelastic/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "navermon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "c6xpY74Vk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"free\") as free FROM mem WHERE (\"host\" =~ /^navermon/) AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "Q",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Memory Free Naver",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-7d",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "AN - Memory Free All Clusters",
+  "uid": "e4148922-32f0-439c-92f7-850d0a5e75c7",
+  "version": 16,
+  "weekStart": ""
+}

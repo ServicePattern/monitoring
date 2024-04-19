@@ -1,0 +1,4232 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "New experiments ",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": 107,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "000000007"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 25
+              },
+              {
+                "color": "red",
+                "value": 50
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 20,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "Andes (us-east-2)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "key": "Q-1d6fbee8-dd14-4096-bd2d-7f77a817cea2-0",
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'andesmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\"  fill(linear)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "average_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "andesmon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Australia(Sydney)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "key": "Q-ea3142c1-ba47-42af-8528-2753a4b80494-3",
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'ausmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "average_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "andesmon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Australia(Melbourn)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'ausping.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "M",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Ireland",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "key": "Q-1a9ffa8b-1d5a-4de0-abd1-b241eab5054f-4",
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'iremon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "average_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "iremon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Singapore",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "url"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'sinmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3), \"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "sinmon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Japan(Tokyo)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'japmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Japan(Osaka)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'japping.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Oder",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'odermon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Bay",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'baymon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Gulf",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'gulfmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "AWS (us-east-1)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'bay-aws-config.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "AWS (us-west-1)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'tts02.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "AWS (us-west-2)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '52.12.78.157') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Lake (AWS, Canada)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'lakemon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "N",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Japan East)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.222.173.161') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "O",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Australia East)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.53.238.129') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "P",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Canada Central)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.63.86.40') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "Q",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (East US)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '52.142.59.248') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "R",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (West US3)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.125.125.186') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "S",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (East US2)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.10.177.198') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "T",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (UK South)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.50.122.20') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "U",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (West Europe)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '137.117.165.230') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "V",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (North Europe)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '40.69.69.110') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "W",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (South Africa North)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.164.217.91') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "X",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Central India)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.198.112.228') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "Y",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (East Asia)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '104.208.96.223') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "Z",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (France Central)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '4.211.80.204') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "AA",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Norway East)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.251.117.62') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "AB",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Swiss North)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.208.44.124') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "AC",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Ping latency from Bay (QTS CA)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "000000020"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 25
+              },
+              {
+                "color": "red",
+                "value": 50
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 20,
+        "x": 0,
+        "y": 10
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "Andes (us-east-2)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "key": "Q-1d6fbee8-dd14-4096-bd2d-7f77a817cea2-0",
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'andesmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\"  fill(linear)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "average_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "andesmon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Australia(Sydney)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "key": "Q-ea3142c1-ba47-42af-8528-2753a4b80494-3",
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'ausmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "average_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "andesmon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Australia(Melbourn)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'ausping.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "M",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Ireland",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "key": "Q-1a9ffa8b-1d5a-4de0-abd1-b241eab5054f-4",
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'iremon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "average_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "iremon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Singapore",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "url"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'sinmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3), \"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "sinmon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Japan(Tokyo)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'japmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Japan(Osaka)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'japping.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Oder",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'odermon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Bay",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'baymon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Gulf",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'gulfmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "AWS (us-east-1)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'bay-aws-config.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "AWS (us-west-1)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'tts02.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "AWS (us-west-2)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '52.12.78.157') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Lake (AWS, Canada)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'lakemon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "N",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Japan East)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.222.173.161') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "O",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Australia East)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.53.238.129') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "P",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Canada Central)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.63.86.40') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "Q",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (East US)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '52.142.59.248') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "R",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (West US3)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.125.125.186') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "S",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (East US2)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.10.177.198') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "T",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (UK South)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.50.122.20') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "U",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (West Europe)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '137.117.165.230') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "V",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (North Europe)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '40.69.69.110') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "W",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (South Africa North)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.164.217.91') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "X",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Central India)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.198.112.228') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "Y",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (East Asia)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '104.208.96.223') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "Z",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (France Central)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '4.211.80.204') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "AA",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Norway East)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.251.117.62') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "AB",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Swiss North)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.208.44.124') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "AC",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Ping latency from Gulf (QTS TX)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "HXzuYgd7k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 25
+              },
+              {
+                "color": "red",
+                "value": 50
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 20,
+        "x": 0,
+        "y": 20
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "Andes (us-east-2)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "key": "Q-1d6fbee8-dd14-4096-bd2d-7f77a817cea2-0",
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'andesmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\"  fill(linear)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "average_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "andesmon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Australia(Sydney)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "key": "Q-ea3142c1-ba47-42af-8528-2753a4b80494-3",
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'ausmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "average_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "andesmon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Australia(Melbourn)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'ausping.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "M",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Ireland",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "key": "Q-1a9ffa8b-1d5a-4de0-abd1-b241eab5054f-4",
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'iremon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "average_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "iremon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Singapore",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "url"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'sinmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3), \"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "sinmon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Japan(Tokyo)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'japmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Japan(Osaka)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'japping.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Oder",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'odermon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Bay",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'baymon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Gulf",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'gulfmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "AWS (us-east-1)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'bay-aws-config.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "AWS (us-west-1)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'tts02.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "AWS (us-west-2)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '52.12.78.157') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Lake (AWS, Canada)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'lakemon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "N",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Lake (AWS, Canada)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'lakemon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "O",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Japan East)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.222.173.161') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "P",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Australia East)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.53.238.129') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "Q",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Canada Central)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.63.86.40') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "R",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (East US)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '52.142.59.248') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "S",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (West US3)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.125.125.186') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "T",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (East US2)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.10.177.198') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "U",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (UK South)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.50.122.20') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "V",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (West Europe)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '137.117.165.230') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "W",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (North Europe)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '40.69.69.110') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "X",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (South Africa North)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.164.217.91') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "Y",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Central India)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.198.112.228') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "Z",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (East Asia)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '104.208.96.223') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "AA",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (France Central)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '4.211.80.204') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "AB",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Norway East)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.251.117.62') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "AC",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Swiss North)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.208.44.124') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "AD",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Ping latency from Oder (AWS, Frankfurt, EU)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "9Qg8_zyMk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 25
+              },
+              {
+                "color": "red",
+                "value": 50
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 20,
+        "x": 0,
+        "y": 30
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "Andes (us-east-2)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "key": "Q-1d6fbee8-dd14-4096-bd2d-7f77a817cea2-0",
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'andesmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\"  fill(linear)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "average_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "andesmon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Australia(Sydney)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "key": "Q-ea3142c1-ba47-42af-8528-2753a4b80494-3",
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'ausmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "average_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "andesmon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Australia(Melbourn)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'ausping.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "M",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Ireland",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "key": "Q-1a9ffa8b-1d5a-4de0-abd1-b241eab5054f-4",
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'iremon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "average_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "iremon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Singapore",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "url"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'sinmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3), \"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "sinmon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Japan(Tokyo)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'japmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Japan(Osaka)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'japping.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Oder",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'odermon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Bay",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'baymon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Gulf",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'gulfmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "AWS (us-east-1)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'bay-aws-config.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "AWS (us-west-1)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'tts02.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "AWS (us-west-2)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '52.12.78.157') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Lake, (AWS, CA)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'lakemon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "N",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Japan East)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.222.173.161') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "O",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Australia East)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.53.238.129') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "P",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Canada Central)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.63.86.40') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "Q",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (East US)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '52.142.59.248') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "R",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (West US3)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.125.125.186') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "S",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (East US2)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.10.177.198') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "T",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (UK South)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.50.122.20') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "U",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (West Europe)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '137.117.165.230') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "V",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (North Europe)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '40.69.69.110') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "W",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (South Africa North)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.164.217.91') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "X",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Central India)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.198.112.228') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "Y",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (East Asia)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '104.208.96.223') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "Z",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (France Central)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '4.211.80.204') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "AA",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Norway East)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.251.117.62') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "AB",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Swiss North)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.208.44.124') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "AC",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Naver (Korea)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'navermon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "AD",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Ping latency from Andes (AWS, Ohio, US)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "000000014"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 24.9946
+              },
+              {
+                "color": "red",
+                "value": 50
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 20,
+        "x": 0,
+        "y": 40
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "Andes (us-east-2)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "key": "Q-1d6fbee8-dd14-4096-bd2d-7f77a817cea2-0",
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'andesmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\"  fill(linear)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "average_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "andesmon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Australia(Sydney)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "key": "Q-ea3142c1-ba47-42af-8528-2753a4b80494-3",
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'ausmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "average_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "andesmon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Australia(Melbourn)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'ausping.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "M",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Ireland",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "key": "Q-1a9ffa8b-1d5a-4de0-abd1-b241eab5054f-4",
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'iremon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "average_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "iremon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Singapore",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "url"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'sinmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3), \"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "sinmon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Japan(Tokyo)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'japmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Japan(Osaka)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'japping.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Oder",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'odermon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Bay",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'baymon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Gulf",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'gulfmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "AWS (us-east-1)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'bay-aws-config.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "AWS (us-west-1)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'tts02.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "AWS (us-west-2)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '52.12.78.157') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Lake (AWS, Canada)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'lakemon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "N",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Japan East)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.222.173.161') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "O",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Australia East)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.53.238.129') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "P",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Canada Central)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.63.86.40') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "Q",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (East US)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '52.142.59.248') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "R",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (West US3)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.125.125.186') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "S",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (East US2)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.10.177.198') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "T",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (UK South)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.50.122.20') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "U",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (West Europe)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '137.117.165.230') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "V",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (North Europe)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '40.69.69.110') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "W",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (South Africa North)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.164.217.91') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "X",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Central India)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.198.112.228') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "Y",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (East Asia)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '104.208.96.223') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "Z",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (France Central)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '4.211.80.204') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "AA",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Norway East)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.251.117.62') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "AB",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Swiss North)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.208.44.124') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "AC",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Ping latency from Australia (AWS, Sydney, AUS)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "000000019"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 25
+              },
+              {
+                "color": "red",
+                "value": 50
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 20,
+        "x": 0,
+        "y": 50
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "Andes (us-east-2)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "key": "Q-1d6fbee8-dd14-4096-bd2d-7f77a817cea2-0",
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'andesmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\"  fill(linear)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "average_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "andesmon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Australia(Sydney)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "key": "Q-ea3142c1-ba47-42af-8528-2753a4b80494-3",
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'ausmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "average_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "andesmon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Australia(Melbourn)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'ausping.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "M",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Ireland",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "key": "Q-1a9ffa8b-1d5a-4de0-abd1-b241eab5054f-4",
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'iremon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "average_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "iremon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Singapore",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "url"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'sinmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3), \"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "sinmon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Japan(Tokyo)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'japmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Japan(Osaka)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'japping.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Oder",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'odermon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Bay",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'baymon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Gulf",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'gulfmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "AWS (us-east-1)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'bay-aws-config.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "AWS (us-west-1)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'tts02.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "AWS (us-west-2)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '52.12.78.157') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Lake (AWS, Canada)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'lakemon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "N",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Japan East)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.222.173.161') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "O",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Australia East)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.53.238.129') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "P",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Canada Central)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.63.86.40') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "Q",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (East US)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '52.142.59.248') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "R",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (West US3)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.125.125.186') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "S",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (East US2)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.10.177.198') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "T",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (UK South)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.50.122.20') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "U",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (West Europe)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '137.117.165.230') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "V",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (North Europe)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '40.69.69.110') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "W",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (South Africa North)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.164.217.91') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "X",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Central India)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.198.112.228') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "Y",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (East Asia)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '104.208.96.223') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "Z",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (France Central)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '4.211.80.204') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "AA",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Norway East)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.251.117.62') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "AB",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Swiss North)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.208.44.124') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "AC",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Ping latency from Japan (AWS, Tokyo, Japan)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "2ZLhMJ-nz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 25
+              },
+              {
+                "color": "red",
+                "value": 50
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 20,
+        "x": 0,
+        "y": 60
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "Andes (us-east-2)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "key": "Q-1d6fbee8-dd14-4096-bd2d-7f77a817cea2-0",
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'andesmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\"  fill(linear)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "average_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "andesmon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Australia(Sydney)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "key": "Q-ea3142c1-ba47-42af-8528-2753a4b80494-3",
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'ausmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "average_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "andesmon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Australia(Melbourn)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'ausping.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "M",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Ireland",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "key": "Q-1a9ffa8b-1d5a-4de0-abd1-b241eab5054f-4",
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'iremon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "average_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "iremon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Singapore",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "url"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'sinmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3), \"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=",
+              "value": "sinmon.brightpattern.com"
+            }
+          ]
+        },
+        {
+          "alias": "Japan(Tokyo)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'japmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Japan(Osaka)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'japping.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Oder",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'odermon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Bay",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'baymon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Gulf",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'gulfmon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "AWS (us-east-1)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'bay-aws-config.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "AWS (us-west-1)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'tts02.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "AWS (us-west-2)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '52.12.78.157') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Lake (AWS, Canada)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = 'lakemon.brightpattern.com') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "N",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Japan East)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.222.173.161') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "O",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Australia East)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.53.238.129') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "P",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Canada Central)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.63.86.40') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "Q",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (East US)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '52.142.59.248') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "R",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (West US3)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.125.125.186') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "S",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (East US2)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.10.177.198') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "T",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (UK South)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.50.122.20') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "U",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (West Europe)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '137.117.165.230') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "V",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (North Europe)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '40.69.69.110') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "W",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (South Africa North)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.164.217.91') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "X",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Central India)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.198.112.228') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "Y",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (East Asia)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '104.208.96.223') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "Z",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (France Central)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '4.211.80.204') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "AA",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Norway East)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.251.117.62') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "AB",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "Azure (Swiss North)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" = '20.208.44.124') AND $timeFilter GROUP BY time($__interval*3),\"url\" fill(linear)",
+          "rawQuery": true,
+          "refId": "AC",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Ping latency from Lake (AWS, Canada)",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Ping Latency",
+  "uid": "UTVOyS0Vz",
+  "version": 71,
+  "weekStart": ""
+}

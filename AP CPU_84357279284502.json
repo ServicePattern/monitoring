@@ -1,0 +1,4578 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "$$hashKey": "object:13",
+        "builtIn": 1,
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 118,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "md0-UOB4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 10,
+      "interval": "10s",
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "alias": "albiondmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "md0-UOB4k"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "diskio",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^albiondmz1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "albiondmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "md0-UOB4k"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^albiondmz2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "albionarb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "md0-UOB4k"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^albionarb/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "albionelastic",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "md0-UOB4k"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^albionelastic/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "albionmon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "md0-UOB4k"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^albionmon/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "CPU Load Albion",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "9Qg8_zyMk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "id": 11,
+      "interval": "10s",
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "alias": "andesdmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "diskio",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^andesdmz1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "andesdmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^andesdmz2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "andesint1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^andesint1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "andesint2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^andesint2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "andesrtp1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^andesrtp1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "andesrtp2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^andesrtp2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "andesrtp3",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^andesrtp3/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "andesarb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^andesarb/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "andesadb1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^andesdb1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "andesadb2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^andesdb2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "andeselastic1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^andeselastic1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "andesmon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "9Qg8_zyMk"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^andesmon/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "CPU Load Andes",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "T4mMwjDnz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 14
+      },
+      "id": 13,
+      "interval": "10s",
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "alias": "aus2dmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "T4mMwjDnz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "diskio",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^aus2dmz1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "aus2dmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "T4mMwjDnz"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^aus2dmz2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "aus2arb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "T4mMwjDnz"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^aus2arb/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "aus2db1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "T4mMwjDnz"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^aus2db1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "aus2db2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "T4mMwjDnz"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^aus2db2/ GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "aus2mon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "T4mMwjDnz"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^aus2mon/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "CPU Load Australia 2 AWS",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "000000014"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 21
+      },
+      "id": 12,
+      "interval": "10s",
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "alias": "ausdmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "diskio",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^ausdmz1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "ausdmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^ausdmz2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "ausrtp1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^ausrtp1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "ausrtp2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^ausrtp2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "ausarb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^ausarb/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "ausdb1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^ausdb1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "ausdb2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^ausdb2/ GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "auselastic1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^auselastic1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "ausmon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000014"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^ausmon/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "CPU Load Australia AWS",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "000000007"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          },
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "bay-aws-mongo8"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 28
+      },
+      "id": 14,
+      "interval": "10s",
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "alias": "baydmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "diskio",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^baydmz1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "baydmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^baydmz2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "bayint1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^bayint1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "bayint2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^bayint2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "bayrtp1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^bayrtp1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "bayrtp2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^bayrtp2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "bayrtp3",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^bayrtp3/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "bayarb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^bayarb/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "baydb1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^baydb1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "baydb2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^baydb2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "bay-aws-config",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^bay-aws-config/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "bay-aws-config9",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^bay-aws-config9/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "N",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "bay-aws-reporting",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^bay-aws-reporting/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "bay-aws-reporting9",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^bay-aws-reporting9/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "P",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "bay-aws-mongo",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^bay-aws-mongo/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "M",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "bay-aws-mongo8",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000007"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^bay-aws-mongo8/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "O",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "CPU Load Bay",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "000000020"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 35
+      },
+      "id": 15,
+      "interval": "10s",
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "alias": "gulfdmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "diskio",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^gulfdmz1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "gulfdmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^gulfdmz2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulfdmz3",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^gulfdmz3/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "N",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulfdmz5",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^gulfdmz5/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "P",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulfint1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^gulfint1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulfint2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^gulfint2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulfrtp1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^gulfrtp1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulfrtp2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^gulfrtp2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulfrtp3",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^gulfrtp3/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulfelastic",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^gulfelastic/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulfdb1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^gulfdb1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulfdb2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^gulfdb2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulf-aws-config",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^gulf-aws-config/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulf-aws-reporting",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^gulf-aws-reporting/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulf-aws-mongo",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^gulf-aws-mongo/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "M",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "gulfdmz4",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000020"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^gulfdmz4/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "O",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "CPU Load Gulf",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "000000011"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 42
+      },
+      "id": 17,
+      "interval": "10s",
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "alias": "hilldmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "diskio",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^hilldmz1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "hilldmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^hilldmz2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hilldmz3",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^hilldmz3/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "M",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hilldmz4",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^hilldmz4/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "N",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hilldmz5",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^hilldmz5/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "O",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hilldmz6",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^hilldmz6/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "P",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hilldmz7",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^hilldmz7/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "Q",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hilldmz8",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^hilldmz8/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "R",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hillint1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^hillint1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hillint2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^hillint2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hillrtp1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^hillrtp1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hillrtp2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^hillrtp2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hilldb1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^hilldb1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hilldb2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^hilldb2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hillelastic1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^hillelastic1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hillmon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^hillmon/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hill-aws-config",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^hill-aws-config/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hill-aws-reporting",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^hill-aws-reporting/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "hill-aws-mongo",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000011"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^hill-aws-mongo/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "S",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "CPU Load Hill",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "000000018"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 49
+      },
+      "id": 18,
+      "interval": "10s",
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "alias": "iredmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "diskio",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^iredmz1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "iredmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^iredmz2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "ireint1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^ireint1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "ireint2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^ireint2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "irertp1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^irertp1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "irertp2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^irertp2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "irertp3",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^irertp3/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "irearb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^irearb/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "iredb1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^iredb1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "iredb2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^iredb2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "ireelastic",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^ireelastic/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "iremon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000018"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^iremon/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "CPU Load Ireland AWS",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "000000019"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 56
+      },
+      "id": 19,
+      "interval": "10s",
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "alias": "japdmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "diskio",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^japdmz1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "japdmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^japdmz2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "japrtp1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^japrtp1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "japrtp2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^japrtp2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "japarb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^japarb/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "japdb1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^japdb1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "japdb2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^japdb2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "japelastic",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^japelastic/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "japmon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000019"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^japmon/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "CPU Load Japan AWS",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "2ZLhMJ-nz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 63
+      },
+      "id": 20,
+      "interval": "10s",
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "alias": "lakedmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "diskio",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^lakedmz1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "lakedmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^lakedmz2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "lakertp1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^lakertp1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "lakertp2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^lakertp2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "lakearb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^lakearb/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "lakedb1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^lakedb1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "lakedb2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^lakedb2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "lakeelastic",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^lakeelastic/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "lakemon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "2ZLhMJ-nz"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^lakemon/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "CPU Load Lake AWS",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "HXzuYgd7k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 70
+      },
+      "id": 21,
+      "interval": "10s",
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "alias": "oderdmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "diskio",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^oderdmz1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "oderdmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^oderdmz2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "oderrtp1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^oderrtp1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "oderarb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^oderarb/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "oderelastic",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^oderelastic/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "odermon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "HXzuYgd7k"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^odermon/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "CPU Load Oder AWS",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "000000015"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 77
+      },
+      "id": 16,
+      "interval": "10s",
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "alias": "peakdmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "diskio",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^peakdmz1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "peakdmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^peakdmz2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peakdmz3",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^peakdmz3/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "M",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peakdmz4",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^peakdmz4/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "N",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peakint1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^peakint1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peakint2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^peakint2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peakrtp1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^peakrtp1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peakrtp2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^peakrtp2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peakrtp3",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^peakrtp3/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peakarb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^peakarb/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peakdb2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^peakdb2/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peakdb4",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^peakdb4/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peakelastic1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^peakelastic1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peakmon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^peakmon/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peak-aws-config",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^peak-aws-config/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "O",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peak-aws-reporting",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^peak-aws-reporting/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "P",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "peak-aws-mongo",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000015"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^peak-aws-mongo/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "Q",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "CPU Load Peak",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "000000013"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 84
+      },
+      "id": 22,
+      "interval": "10s",
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "alias": "sin01",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000013"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "diskio",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^sin01/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "sin02",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000013"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^sin02/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "sinarb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000013"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^sinarb/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "sinelastic",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000013"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^sinelastic/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "sinmon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "000000013"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^sinmon/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "CPU Load Singapore AWS",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "JN5pF4P4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 91
+      },
+      "id": 23,
+      "interval": "10s",
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "alias": "sandbox-us-dmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "JN5pF4P4z"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "diskio",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^sandbox-us-dmz1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "sandbox-us-db1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "JN5pF4P4z"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^sandbox-us-db1/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "sandbox-us-mon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "JN5pF4P4z"
+          },
+          "hide": false,
+          "query": "SELECT mean(load1) as load1 FROM system WHERE $timeFilter and \"host\" =~ /^sandbox-us-mon/ GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "CPU Load Sandbox US",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "c6xpY74Vk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 98
+      },
+      "id": 24,
+      "interval": "10s",
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "alias": "naverdmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "c6xpY74Vk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "system",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT mean(\"load1\") FROM \"autogen\".\"system\" WHERE (\"host\"::tag = 'naverdmz1') AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "load1"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host::tag",
+              "operator": "=",
+              "value": "naverdmz1"
+            }
+          ]
+        },
+        {
+          "alias": "naverdmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "c6xpY74Vk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"load1\") FROM \"autogen\".\"system\" WHERE (\"host\"::tag = 'naverdmz2') AND $timeFilter GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "naverrtp1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "c6xpY74Vk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"load1\") FROM \"autogen\".\"system\" WHERE (\"host\"::tag = 'naverrtp1') AND $timeFilter GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "naverrtp2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "c6xpY74Vk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"load1\") FROM \"autogen\".\"system\" WHERE (\"host\"::tag = 'naverrtp2') AND $timeFilter GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "naverarb",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "c6xpY74Vk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"load1\") FROM \"autogen\".\"system\" WHERE (\"host\"::tag = 'naverarb') AND $timeFilter GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "naverdb1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "c6xpY74Vk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"load1\") FROM \"autogen\".\"system\" WHERE (\"host\"::tag = 'naverdb1') AND $timeFilter GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "naverdb2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "c6xpY74Vk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"load1\") FROM \"autogen\".\"system\" WHERE (\"host\"::tag = 'naverdb2') AND $timeFilter GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "naverelastic",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "c6xpY74Vk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"load1\") FROM \"autogen\".\"system\" WHERE (\"host\"::tag = 'naverelastic') AND $timeFilter GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "navermon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "c6xpY74Vk"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"load1\") FROM \"autogen\".\"system\" WHERE (\"host\"::tag = 'navermon') AND $timeFilter GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "CPU Load Naver",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "e01edbf3-2e50-4fa4-b00c-e85c1237eadd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 105
+      },
+      "id": 25,
+      "interval": "10s",
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "alias": "danube-dmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "e01edbf3-2e50-4fa4-b00c-e85c1237eadd"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "system",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT mean(\"load1\") FROM \"autogen\".\"system\" WHERE (\"host\"::tag = 'danube-dmz1') AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "load1"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host::tag",
+              "operator": "=",
+              "value": "naverdmz1"
+            }
+          ]
+        },
+        {
+          "alias": "danube-mon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "e01edbf3-2e50-4fa4-b00c-e85c1237eadd"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"load1\") FROM \"autogen\".\"system\" WHERE (\"host\"::tag = 'danube-mon') AND $timeFilter GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "CPU Load Danube",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "c6ec8ce2-42be-43d5-be53-f1343a68cbf6"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpu_num"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 112
+      },
+      "id": 26,
+      "interval": "10s",
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "alias": "diwalidmz1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "c6ec8ce2-42be-43d5-be53-f1343a68cbf6"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "system",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT mean(\"load1\") FROM \"autogen\".\"system\" WHERE (\"host\"::tag = 'diwalidmz1') AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "load1"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host::tag",
+              "operator": "=",
+              "value": "naverdmz1"
+            }
+          ]
+        },
+        {
+          "alias": "diwalidmz2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "c6ec8ce2-42be-43d5-be53-f1343a68cbf6"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "system",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT mean(\"load1\") FROM \"autogen\".\"system\" WHERE (\"host\"::tag = 'diwalidmz2') AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "load1"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host::tag",
+              "operator": "=",
+              "value": "naverdmz1"
+            }
+          ]
+        },
+        {
+          "alias": "diwalimon",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "c6ec8ce2-42be-43d5-be53-f1343a68cbf6"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"load1\") FROM \"autogen\".\"system\" WHERE (\"host\"::tag = 'diwalimon') AND $timeFilter GROUP BY time($interval*5)\n",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "diwalielastic",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "c6ec8ce2-42be-43d5-be53-f1343a68cbf6"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "system",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT mean(\"load1\") FROM \"autogen\".\"system\" WHERE (\"host\"::tag = 'diwalielastic') AND $timeFilter GROUP BY time($interval*5)",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "load1"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host::tag",
+              "operator": "=",
+              "value": "naverdmz1"
+            }
+          ]
+        }
+      ],
+      "title": "CPU Load Diwali",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-7d",
+    "to": "now"
+  },
+  "timepicker": {
+    "collapse": false,
+    "enable": true,
+    "notice": false,
+    "now": true,
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "status": "Stable",
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ],
+    "type": "timepicker"
+  },
+  "timezone": "browser",
+  "title": "AP CPU",
+  "uid": "84357279284502",
+  "version": 28,
+  "weekStart": ""
+}
