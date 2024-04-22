@@ -148,12 +148,14 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:75",
           "format": "percent",
           "logBase": 1,
           "min": 0,
           "show": true
         },
         {
+          "$$hashKey": "object:76",
           "format": "percent",
           "logBase": 1,
           "show": true
@@ -2176,6 +2178,6 @@
   "timezone": "browser",
   "title": "CPU, Memory",
   "uid": "e16fb086-dd11-42a5-971f-0dde334bf405",
-  "version": 8,
+  "version": 10,
   "weekStart": ""
 }
