@@ -131,7 +131,7 @@
       ],
       "thresholds": [],
       "timeRegions": [],
-      "title": "CPU1",
+      "title": "CPU",
       "tooltip": {
         "msResolution": true,
         "shared": true,
@@ -2178,6 +2178,6 @@
   "timezone": "browser",
   "title": "CPU, Memory",
   "uid": "e16fb086-dd11-42a5-971f-0dde334bf405",
-  "version": 11,
+  "version": 12,
   "weekStart": ""
 }
