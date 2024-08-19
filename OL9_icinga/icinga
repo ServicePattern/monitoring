@@ -1,0 +1,2 @@
+Defaults:icinga !requiretty
+icinga    ALL=(spuser) NOPASSWD: /usr/lib64/nagios/plugins/check_sp_service_instances_count.pl

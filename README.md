@@ -6,3 +6,8 @@ Actions items are marked with "ACTION:" inside the .conf files, you will need re
 
 ## Icinga scripts
 
+On the *mon host:
+```
+git clone git@github.com:ServicePattern/monitoring.git
+cd monitoring/OL9_icinga
+```
