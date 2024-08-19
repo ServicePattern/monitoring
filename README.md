@@ -82,7 +82,36 @@ systemctl start icinga2
 
 In order to build RPM packages for the latest version of Icinga, we need 2 files:
 
-- Archive with Icinga source files: v2.14.2.tar.gz [download from](https://github.com/Icinga/icinga2/archive/refs/tags/v2.14.2.tar.gz)
-- icinga2.spec
+- Archive with Icinga source files: v2.14.2.tar.gz [download from Icinga github](https://github.com/Icinga/icinga2/archive/refs/tags/v2.14.2.tar.gz)
+- icinga2.spec [download from copr.fedorainfracloud.org](https://download.copr.fedorainfracloud.org/results/jered/icinga2/epel-9-x86_64/07227811-icinga2/icinga2.spec)
 
+Build:
+
+Install some required packages
+```sh
+sudo dnf -y install git-core mock
+```
+Add the current user to the mock group
+```sh
+sudo usermod -a -G mock $USER
+```
+Logout the system and log back in
+
+Download the desired version release
+```sh
+curl -LO https://github.com/Icinga/icinga2/archive/refs/tags/v2.14.2.tar.gz
+```
+And the corresponding specification file (or locally in OL9_icinga/v2.14.2/)
+```sh
+curl -LO https://download.copr.fedorainfracloud.org/results/jered/icinga2/epel-9-x86_64/07227811-icinga2/icinga2.spec
+```
+Build the source rpm file
+```sh
+mock --dnf --clean --spec icinga2.spec --sources=. --result=result --build
+```
+This should generate a source rpm file with the name based on the system, e.g. result/icinga2-2.14.2.el9.src.rpm
+Build the binary rpm package files based on the generated source rpm file
+```sh
+mock --dnf --clean --sources=. --result=result --rebuild result/icinga2-2.14.2.el9.src.rpm
+```
 
