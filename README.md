@@ -48,3 +48,27 @@ sudo mv logarchive.py /etc/archive/logarchive/logarchive.py
 sudo mv coldstorage.py /etc/archive/logarchive/coldstorage.py
 ```
 
+## Icinga installation from binary
+
+[Original article] (https://freedom-for-icinga.com/#install)
+
+```sh
+sudo rpm --import https://packages.freedom-for-icinga.com/free-icinga.key
+sudo curl https://packages.freedom-for-icinga.com/epel/FREE-ICINGA-release.repo -o /etc/yum.repos.d/FREE-ICINGA-release.repo
+```
+The packages depend on other packages which are distributed as part of the EPEL repository:
+```sh
+sudo dnf install epel-release
+```
+
+Install Icinga 2
+
+```sh
+sudo dnf install icinga2
+systemctl enable icinga2
+systemctl start icinga2
+```
+
+## How to build the latest Icinga RPM package for OL9 from source
+
+
