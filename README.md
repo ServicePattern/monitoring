@@ -4,13 +4,13 @@ Actions items are marked with "ACTION:" inside the .conf files, you will need re
 
 # Oracle Linux 9 (Python 3) migration
 
-## Icinga scripts
 On the Icinga master node (icinga.brightpattern.com):
 ```sh
 sudo vim /etc/icinga2/zones.d/<cluster>/hosts.conf
 ```
 replace all hosts IP `addresses` with `<host_fqdn>-int.brightpattern.com`
 
+## Icinga scripts
 
 On the cluster *mon OL9  host:
 ```sh
