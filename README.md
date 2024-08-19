@@ -107,6 +107,7 @@ curl -LO https://download.copr.fedorainfracloud.org/results/jered/icinga2/epel-9
 ```
 Build the source rpm file
 ```sh
+mv v2.14.2.tar.gz icinga2-2.14.2.tgz
 mock --dnf --clean --spec icinga2.spec --sources=. --result=result --build
 ```
 This should generate a source rpm file with the name based on the system, e.g. result/icinga2-2.14.2.el9.src.rpm
@@ -114,4 +115,4 @@ Build the binary rpm package files based on the generated source rpm file
 ```sh
 mock --dnf --clean --sources=. --result=result --rebuild result/icinga2-2.14.2.el9.src.rpm
 ```
-
+This results in multiple rpm files within the "result" directory which can be published via a public repository and then installed on other systems
