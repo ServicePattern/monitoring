@@ -68,7 +68,7 @@ systemctl enable icinga2
 systemctl start icinga2
 ```
 
-## How to build the latest Icinga RPM package for OL9 from source
+## How to build the `latest` Icinga RPM package for OL9 from source
 
 [Original article](https://freedom-for-icinga.com/#build)
 
