@@ -6,7 +6,7 @@ Actions items are marked with "ACTION:" inside the .conf files, you will need re
 
 ## Icinga scripts
 
-On the cluster *mon host:
+On the cluster *mon OL9  host:
 ```
 git clone git@github.com:ServicePattern/monitoring.git
 cd monitoring/OL9_icinga
@@ -22,6 +22,7 @@ sudo mv check_mongodb.py /usr/lib64/nagios/plugins/check_mongodb.py
 ```
 - MariaDB Slave
 ```
+sudo pip install PyMySQL
 sudo mv check_mysql_mariadb_slave.py /usr/lib64/nagios/plugins/sp/check_mysql_mariadb_slave.py
 ```
 - SP service instances count
@@ -29,3 +30,15 @@ sudo mv check_mysql_mariadb_slave.py /usr/lib64/nagios/plugins/sp/check_mysql_ma
 sudo mv icinga /etc/sudoers.d/icinga
 sudo mv check_sp_service_instances_count.pl /usr/lib64/nagios/plugins/check_sp_service_instances_count.pl
 ```
+
+## Logarchive
+```
+cd ../OL9_archiving
+```
+
+- Logarchive
+```
+sudo mv logarchive.py /etc/archive/logarchive/logarchive.py
+sudo mv coldstorage.py /etc/archive/logarchive/coldstorage.py
+```
+
