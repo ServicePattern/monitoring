@@ -48,7 +48,7 @@ sudo mv logarchive.py /etc/archive/logarchive/logarchive.py
 sudo mv coldstorage.py /etc/archive/logarchive/coldstorage.py
 ```
 
-## Icinga installation from binary `(may not be the latest version)`
+## Icinga installation from binary for OL9 `(may not be the latest version)`
 - Repo 1: [Original article](https://freedom-for-icinga.com/#install)
 
 ```sh
