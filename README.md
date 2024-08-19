@@ -49,7 +49,7 @@ sudo mv coldstorage.py /etc/archive/logarchive/coldstorage.py
 ```
 
 ## Icinga installation from binary `(may not be the latest version)`
-[Original article](https://freedom-for-icinga.com/#install)
+- Repo 1: [Original article](https://freedom-for-icinga.com/#install)
 
 ```sh
 sudo rpm --import https://packages.freedom-for-icinga.com/free-icinga.key
@@ -58,6 +58,14 @@ sudo curl https://packages.freedom-for-icinga.com/epel/FREE-ICINGA-release.repo 
 The packages depend on other packages which are distributed as part of the EPEL repository:
 ```sh
 sudo dnf install epel-release
+```
+- Repo 2: [Original article](https://copr.fedorainfracloud.org/coprs/jered/icinga2/)
+```sh
+sudo dnf copr enable jered/icinga2
+```
+- Repo 3: [Original article](https://copr.fedorainfracloud.org/coprs/relaix/utils/)
+```sh
+sudo dnf copr enable dnf copr enable relaix/utils
 ```
 
 Install Icinga 2
@@ -68,8 +76,14 @@ systemctl enable icinga2
 systemctl start icinga2
 ```
 
-## How to build the `latest` Icinga RPM package for OL9 from source
+## How to build the `2.14.2` Icinga RPM package for OL9 from source
 
 [Original article](https://freedom-for-icinga.com/#build)
+
+In order to build RPM packages for the latest version of Icinga, we need 3 files:
+
+- Archive with Icinga source files: v2.14.2.tar.gz
+- icinga2.spec
+- icinga2-allow-certchain.patch
 
 
