@@ -50,7 +50,7 @@ sudo mv coldstorage.py /etc/archive/logarchive/coldstorage.py
 
 ## Icinga installation from binary
 
-[Original article] (https://freedom-for-icinga.com/#install)
+[https://freedom-for-icinga.com/#install] (Original article)
 
 ```sh
 sudo rpm --import https://packages.freedom-for-icinga.com/free-icinga.key
