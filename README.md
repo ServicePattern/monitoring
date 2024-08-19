@@ -80,10 +80,9 @@ systemctl start icinga2
 
 [Original article](https://freedom-for-icinga.com/#build)
 
-In order to build RPM packages for the latest version of Icinga, we need 3 files:
+In order to build RPM packages for the latest version of Icinga, we need 2 files:
 
-- Archive with Icinga source files: v2.14.2.tar.gz
+- Archive with Icinga source files: v2.14.2.tar.gz [download from](https://github.com/Icinga/icinga2/archive/refs/tags/v2.14.2.tar.gz)
 - icinga2.spec
-- icinga2-allow-certchain.patch
 
 
