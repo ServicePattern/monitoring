@@ -9,7 +9,7 @@ On the Icinga master node (icinga.brightpattern.com):
 ```sh
 sudo vim /etc/icinga2/zones.d/<cluster>/hosts.conf
 ```
-replace all hosts IP `addresses` with `<host_fqdn>-int.brightpattern.comz
+replace all hosts IP `addresses` with `<host_fqdn>-int.brightpattern.com`
 
 
 On the cluster *mon OL9  host:
