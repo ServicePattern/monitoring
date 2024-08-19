@@ -26,5 +26,6 @@ sudo mv check_mysql_mariadb_slave.py /usr/lib64/nagios/plugins/sp/check_mysql_ma
 ```
 - SP service instances count
 ```
+sudo mv icinga /etc/sudoers.d/icinga
 sudo mv check_sp_service_instances_count.pl /usr/lib64/nagios/plugins/check_sp_service_instances_count.pl
 ```
