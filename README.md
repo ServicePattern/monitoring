@@ -49,7 +49,7 @@ sudo mv coldstorage.py /etc/archive/logarchive/coldstorage.py
 ```
 
 ## Icinga installation from binary
-
+[This is an external link to genome.gov](https://www.genome.gov/)
 [https://freedom-for-icinga.com/#install] (Original article)
 
 ```sh
