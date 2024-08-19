@@ -59,11 +59,11 @@ The packages depend on other packages which are distributed as part of the EPEL 
 ```sh
 sudo dnf install epel-release
 ```
-- Repo 2: [Original article](https://copr.fedorainfracloud.org/coprs/jered/icinga2/)
+- or Repo 2: [Original article](https://copr.fedorainfracloud.org/coprs/jered/icinga2/)
 ```sh
 sudo dnf copr enable jered/icinga2
 ```
-- Repo 3: [Original article](https://copr.fedorainfracloud.org/coprs/relaix/utils/)
+- or Repo 3: [Original article](https://copr.fedorainfracloud.org/coprs/relaix/utils/)
 ```sh
 sudo dnf copr enable dnf copr enable relaix/utils
 ```
