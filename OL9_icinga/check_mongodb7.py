@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #
 # A MongoDB Nagios check script
@@ -212,7 +212,7 @@ def main(argv):
     cert_file = options.cert_file
     auth_mechanism = options.auth_mechanism
     retry_writes_disabled = options.retry_writes_disabled
-    #retry_writes_disabled = "true"
+  # retry_writes_disabled = "true"
 
     if action == 'replica_primary' and replicaset is None:
         return "replicaset must be passed in when using replica_primary check"
@@ -916,6 +916,7 @@ def check_databases(con, warning, critical, perf_data=None):
 def check_collections(con, warning, critical, perf_data=None):
     try:
         try:
+            print("begin")
             set_read_preference(con.admin)
             data = con.admin.command(pymongo.son_manipulator.SON([('listDatabases', 1)]))
         except:
@@ -925,8 +926,8 @@ def check_collections(con, warning, critical, perf_data=None):
         for db in data['databases']:
             dbase = con[db['name']]
             set_read_preference(dbase)
-            count += len(dbase.collection_names())
-
+    #        count += len(dbase.collection_names())
+            count += len(dbase.list_collection_names())
         message = "Number of collections: %.0f" % count
         message += performance_data(perf_data, [(count, "collections", warning, critical, message)])
         return check_levels(count, warning, critical, message)
