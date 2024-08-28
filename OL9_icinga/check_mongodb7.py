@@ -916,7 +916,6 @@ def check_databases(con, warning, critical, perf_data=None):
 def check_collections(con, warning, critical, perf_data=None):
     try:
         try:
-            print("begin")
             set_read_preference(con.admin)
             data = con.admin.command(pymongo.son_manipulator.SON([('listDatabases', 1)]))
         except:
